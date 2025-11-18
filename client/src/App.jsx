@@ -1,10 +1,10 @@
 import './App.css'
 import FooterNav from './components/FooterNav'
-import Status from './tabs/status'
-import Sensors from './tabs/sensors'
-import Controls from './tabs/controls'
-import Analytics from './tabs/analytics'
-import Notifications from './tabs/notifications'
+import Status from './tabs/Status'
+import Sensors from './tabs/Sensors'
+import Controls from './tabs/Controls'
+import Analytics from './tabs/Analytics'
+import Notifications from './tabs/Notifications'
 
 function App() {
 
