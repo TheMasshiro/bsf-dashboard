@@ -10,8 +10,8 @@ function App() {
 
     return (
         <FooterNav>
-            <Notifications />
             <Sensors />
+            <Notifications />
             <Controls />
             <Analytics />
             <Status />

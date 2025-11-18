@@ -4,9 +4,9 @@ const FooterNav = ({ children }) => {
     const [activeTab, setActiveTab] = useState(0);
 
     const tabs = [
+        { name: 'Sensors', icon: '🌡️' },
         { name: 'Controls', icon: '🎛️' },
         { name: 'Notifications', icon: '🔔' },
-        { name: 'Sensors', icon: '🌡️' },
         { name: 'Analytics', icon: '📈' },
         { name: 'Status', icon: '📊' }
     ];
