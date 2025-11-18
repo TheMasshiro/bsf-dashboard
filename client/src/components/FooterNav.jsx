@@ -5,8 +5,8 @@ const FooterNav = ({ children }) => {
 
     const tabs = [
         { name: 'Sensors', icon: '🌡️' },
-        { name: 'Controls', icon: '🎛️' },
         { name: 'Notifications', icon: '🔔' },
+        { name: 'Controls', icon: '🎛️' },
         { name: 'Analytics', icon: '📈' },
         { name: 'Status', icon: '📊' }
     ];
