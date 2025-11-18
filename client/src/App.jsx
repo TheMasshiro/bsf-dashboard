@@ -10,11 +10,11 @@ function App() {
 
     return (
         <FooterNav>
-            <Status />
+            <Notifications />
             <Sensors />
             <Controls />
             <Analytics />
-            <Notifications />
+            <Status />
         </FooterNav>
     )
 }
