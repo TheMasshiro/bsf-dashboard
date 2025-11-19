@@ -86,7 +86,7 @@ const Analytics = () => {
             max: 100
         },
         light: {
-            name: 'Light Intensity',
+            name: 'Light',
             icon: '☀️',
             data: lightData,
             unit: 'lux',
