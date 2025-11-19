@@ -1,6 +1,5 @@
 const MetricButton = ({
     icon,
-    name,
     value,
     unit,
     isActive = false,
@@ -11,7 +10,7 @@ const MetricButton = ({
         <button
             onClick={onClick}
             className={`
-                p-4 rounded-xl border-2 transition-all active:scale-95
+                aspect-square p-4 rounded-xl border-2 transition-all active:scale-95
                 ${isActive
                     ? 'border-blue-500 bg-blue-900/30'
                     : 'border-gray-700 bg-neutral-800'
@@ -19,12 +18,9 @@ const MetricButton = ({
                 ${className}
             `}
         >
-            <div className="flex items-center gap-2 justify-center">
+            <div className="flex flex-col items-center justify-center gap-1 h-full">
                 <span className="text-2xl">{icon}</span>
-                <div className="text-left">
-                    <p className="text-white text-sm font-semibold">{name}</p>
-                    <p className="text-gray-400 text-xs">{value}{unit}</p>
-                </div>
+                <p className="text-white text-sm font-bold">{value}{unit}</p>
             </div>
         </button>
     );

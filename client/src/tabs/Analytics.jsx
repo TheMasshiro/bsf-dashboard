@@ -104,7 +104,7 @@ const Analytics = () => {
 
     return (
         <div className="w-full h-full flex flex-col">
-            <div className="mb-4">
+            <div className="mb-2">
                 <h1 className="text-white text-2xl font-bold mb-1">Analytics</h1>
                 <p className="text-gray-400 text-sm">24-hour trend analysis</p>
             </div>
@@ -121,16 +121,15 @@ const Analytics = () => {
                 color={currentMetric.color}
                 minY={currentMetric.min}
                 maxY={currentMetric.max}
-                className="mb-4"
+                className="mb-3"
             />
 
-            <div className="grid grid-cols-2 gap-2 pb-30">
+            <div className="grid grid-cols-4 gap-2 pb-30">
                 {Object.entries(metrics).map(([key, metric]) => (
                     <MetricButton
                         key={key}
                         icon={metric.icon}
                         value={metric.current}
-                        name={metric.name}
                         unit={metric.unit}
                         isActive={selectedMetric === key}
                         onClick={() => setSelectedMetric(key)}
