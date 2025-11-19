@@ -73,7 +73,7 @@ const Analytics = () => {
             max: 90
         },
         moisture: {
-            name: 'Substrate Moisture',
+            name: 'Moisture',
             icon: '🌱',
             data: moistureData,
             unit: '%',
@@ -124,13 +124,13 @@ const Analytics = () => {
                 className="mb-4"
             />
 
-            <div className="grid grid-cols-2 gap-2 pb-2">
+            <div className="grid grid-cols-2 gap-2 pb-30">
                 {Object.entries(metrics).map(([key, metric]) => (
                     <MetricButton
                         key={key}
                         icon={metric.icon}
-                        name={metric.name}
                         value={metric.current}
+                        name={metric.name}
                         unit={metric.unit}
                         isActive={selectedMetric === key}
                         onClick={() => setSelectedMetric(key)}
