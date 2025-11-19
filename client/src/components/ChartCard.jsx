@@ -42,8 +42,8 @@ const ChartCard = ({
             </div>
 
             <div className="h-48 w-full touch-none" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}>
-                <ResponsiveContainer width="99%" height="100%">
-                    <BarChart data={data} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                         <XAxis
                             dataKey="time"
@@ -75,7 +75,7 @@ const ChartCard = ({
                                 y={warningLimit}
                                 stroke="#f59e0b"
                                 strokeDasharray="5 5"
-                                label={{ value: 'Warning', position: 'right', fill: '#f59e0b', fontSize: 10 }}
+                                label={{ value: 'Warn', position: 'right', fill: '#f59e0b', fontSize: 10 }}
                             />
                         )}
 
@@ -99,7 +99,7 @@ const ChartCard = ({
 
             {(upperLimit !== undefined || warningLimit !== undefined || lowerLimit !== undefined) && (
                 <div className="mt-4 pt-3 border-t border-gray-700">
-                    <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div className="flex justify-center gap-4 text-xs">
                         {upperLimit !== undefined && (
                             <div className="flex items-center gap-1">
                                 <div className="w-3 h-0.5 bg-red-500"></div>
