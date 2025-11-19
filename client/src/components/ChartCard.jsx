@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 
 const ChartCard = ({
     title,
@@ -28,13 +28,11 @@ const ChartCard = ({
 
     return (
         <div className={`bg-neutral-800 rounded-2xl border-2 border-gray-700 p-4 ${className}`}>
-            {/* Header */}
             <div className="flex items-center justify-between mb-3">
                 <h3 className="text-white font-semibold text-sm">{title}</h3>
                 <span className="text-2xl">{icon}</span>
             </div>
 
-            {/* Current Value Display */}
             <div className="mb-4 p-3 bg-neutral-700/30 rounded-lg">
                 <p className="text-gray-400 text-xs mb-1">Current Reading</p>
                 <p className="text-white text-3xl font-bold">
@@ -43,28 +41,25 @@ const ChartCard = ({
                 </p>
             </div>
 
-            {/* Chart */}
-            <div className="h-48 touch-none" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}>
-                <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={data}>
-                        <defs>
-                            <linearGradient id={`gradient-${title}`} x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor={color} stopOpacity={0.3} />
-                                <stop offset="95%" stopColor={color} stopOpacity={0} />
-                            </linearGradient>
-                        </defs>
+            <div className="h-48 w-full touch-none" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}>
+                <ResponsiveContainer width="99%" height="100%">
+                    <BarChart data={data} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                         <XAxis
                             dataKey="time"
                             stroke="#9ca3af"
-                            style={{ fontSize: '10px' }}
+                            style={{ fontSize: '9px' }}
+                            label={{ value: 'Time', position: 'insideBottom', offset: 0, fill: '#9ca3af', fontSize: 10 }}
+                            height={45}
                         />
                         <YAxis
                             stroke="#9ca3af"
-                            style={{ fontSize: '10px' }}
+                            style={{ fontSize: '9px' }}
                             domain={[minY, maxY]}
+                            label={{ value: unit, angle: -90, position: 'insideLeft', fill: '#9ca3af', fontSize: 10 }}
+                            width={40}
                         />
-                        <Tooltip content={<CustomTooltip />} cursor={false} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255, 255, 255, 0.1)' }} />
 
                         {upperLimit !== undefined && (
                             <ReferenceLine
@@ -93,18 +88,15 @@ const ChartCard = ({
                             />
                         )}
 
-                        <Area
-                            type="monotone"
+                        <Bar
                             dataKey="value"
-                            stroke={color}
-                            strokeWidth={2}
-                            fill={`url(#gradient-${title})`}
+                            fill={color}
+                            radius={[4, 4, 0, 0]}
                         />
-                    </AreaChart>
+                    </BarChart>
                 </ResponsiveContainer>
             </div>
 
-            {/* Legend */}
             {(upperLimit !== undefined || warningLimit !== undefined || lowerLimit !== undefined) && (
                 <div className="mt-4 pt-3 border-t border-gray-700">
                     <div className="grid grid-cols-3 gap-2 text-xs">
