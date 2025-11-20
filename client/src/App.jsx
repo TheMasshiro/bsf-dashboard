@@ -1,6 +1,6 @@
 import './App.css'
 import FooterNav from './components/FooterNav'
-import Status from './tabs/Status'
+import Settings from './tabs/Settings'
 import Sensors from './tabs/Sensors'
 import Controls from './tabs/Controls'
 import Analytics from './tabs/Analytics'
@@ -14,7 +14,7 @@ function App() {
             <Notifications />
             <Controls />
             <Analytics />
-            <Status />
+            <Settings />
         </FooterNav>
     )
 }

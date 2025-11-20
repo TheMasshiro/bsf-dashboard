@@ -8,7 +8,7 @@ const FooterNav = ({ children }) => {
         { name: 'Notifications', icon: '🔔' },
         { name: 'Controls', icon: '🎛️' },
         { name: 'Analytics', icon: '📈' },
-        { name: 'Status', icon: '📊' }
+        { name: 'Settings', icon: '⚙️' }
     ];
 
     return (
