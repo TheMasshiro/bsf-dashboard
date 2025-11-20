@@ -30,3 +30,7 @@ body {
     padding-bottom: calc(env(safe-area-inset-bottom) + 4rem + 1rem);
   }
 }
+
+*:focus {
+  outline: none;
+}
