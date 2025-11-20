@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from 'recharts';
 
 const ChartCard = ({
     title,
@@ -41,7 +41,7 @@ const ChartCard = ({
                 </p>
             </div>
 
-            <div className="h-48 w-full touch-none" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none', touchAction: 'none' }}>
+            <div className="h-48 w-full touch-none" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -90,9 +90,16 @@ const ChartCard = ({
 
                         <Bar
                             dataKey="value"
-                            fill={color}
                             radius={[4, 4, 0, 0]}
-                        />
+                        >
+                            {data.map((entry, index) => (
+                                <Cell
+                                    key={`cell-${index}`}
+                                    fill={index === data.length - 1 ? '#10b981' : color}
+                                    opacity={index === data.length - 1 ? 1 : 0.6}
+                                />
+                            ))}
+                        </Bar>
                     </BarChart>
                 </ResponsiveContainer>
             </div>
