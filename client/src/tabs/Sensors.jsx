@@ -4,12 +4,12 @@ import { useLifecycle } from "../context/LifecycleContext";
 import { useActuators } from "../context/ActuatorContext";
 import { lifecycleThresholds, getStatus } from "../config/lifecycleThresholds";
 
-const Sensors = () => {
+const Sensors = ({ sensorData, lastUpdate }) => {
     const { currentLifecycle } = useLifecycle();
     const { currentActuators, toggleActuator } = useActuators();
     const thresholds = lifecycleThresholds[currentLifecycle];
 
-    const currentReadings = {
+    const currentReadings = sensorData || {
         temperature: 24.5,
         humidity: 65,
         moisture: 72,
@@ -23,7 +23,7 @@ const Sensors = () => {
         { name: 'heater', label: 'Heater', icon: '🔥' }
     ];
 
-    const sensorData = [
+    const sensorCards = [
         {
             name: 'Temperature',
             icon: '🌡️',
@@ -56,12 +56,17 @@ const Sensors = () => {
 
     return (
         <div className="w-full h-full">
-            <div className="mb-2">
-                <h1 className="text-white text-2xl font-bold mb-1">Sensors</h1>
+            <div className="mb-2 flex justify-between items-center">
+                <h1 className="text-white text-2xl font-bold">Sensors</h1>
+                {lastUpdate && (
+                    <span className="text-xs text-gray-400">
+                        Updated: {lastUpdate.toLocaleTimeString()}
+                    </span>
+                )}
             </div>
 
             <div className="space-y-2 mb-4">
-                {sensorData.map((sensor, index) => (
+                {sensorCards.map((sensor, index) => (
                     <SensorCard
                         key={index}
                         icon={sensor.icon}
