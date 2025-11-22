@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import ChartCard from '../components/ChartCard';
-import MetricButton from '../components/MetricButton';
+import { ChartCard } from '../components/Cards';
+import { MetricButton } from '../components/Buttons';
+import { useLifecycle } from '../context/LifecycleContext';
+import { lifecycleThresholds } from '../config/lifecycleThresholds';
 
 const Analytics = () => {
     const [selectedMetric, setSelectedMetric] = useState('temperature');
+    const { currentLifecycle } = useLifecycle();
+    const thresholds = lifecycleThresholds[currentLifecycle];
 
     const temperatureData = [
         { time: '00:00', value: 22 },
@@ -51,52 +55,52 @@ const Analytics = () => {
             icon: '🌡️',
             data: temperatureData,
             unit: '°C',
-            upperLimit: 28,
-            warningLimit: 25,
-            lowerLimit: 20,
+            upperLimit: thresholds.temperature.max,
+            warningLimit: thresholds.temperature.optimal[1],
+            lowerLimit: thresholds.temperature.min,
             color: '#ef4444',
             current: 24.5,
-            min: 18,
-            max: 32
+            min: thresholds.temperature.min - 5,
+            max: thresholds.temperature.max + 5
         },
         humidity: {
             name: 'Humidity',
             icon: '💧',
             data: humidityData,
             unit: '%',
-            upperLimit: 75,
-            warningLimit: 70,
-            lowerLimit: 50,
+            upperLimit: thresholds.humidity.max,
+            warningLimit: thresholds.humidity.optimal[1],
+            lowerLimit: thresholds.humidity.min,
             color: '#3b82f6',
             current: 65,
-            min: 40,
-            max: 90
+            min: thresholds.humidity.min - 10,
+            max: thresholds.humidity.max + 10
         },
         moisture: {
             name: 'Moisture',
             icon: '🌱',
             data: moistureData,
             unit: '%',
-            upperLimit: 80,
-            warningLimit: 75,
-            lowerLimit: 60,
+            upperLimit: thresholds.moisture.max,
+            warningLimit: thresholds.moisture.optimal[1],
+            lowerLimit: thresholds.moisture.min,
             color: '#10b981',
             current: 72,
-            min: 50,
-            max: 100
+            min: thresholds.moisture.min - 10,
+            max: thresholds.moisture.max + 10
         },
         light: {
             name: 'Light',
             icon: '☀️',
             data: lightData,
             unit: 'lux',
-            upperLimit: 1000,
-            warningLimit: 900,
-            lowerLimit: 0,
+            upperLimit: thresholds.light.max,
+            warningLimit: thresholds.light.optimal[1],
+            lowerLimit: thresholds.light.min,
             color: '#f59e0b',
             current: 850,
-            min: 0,
-            max: 1200
+            min: thresholds.light.min,
+            max: thresholds.light.max + 500
         }
     };
 

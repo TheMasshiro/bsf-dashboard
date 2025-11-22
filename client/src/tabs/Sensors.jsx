@@ -1,35 +1,47 @@
-import Card from "../components/Card";
-import Buttons from "../components/Buttons";
+import { SensorCard } from '../components/Cards';
+import { ActuatorButtons } from "../components/Buttons";
+import { useLifecycle } from "../context/LifecycleContext";
+import { lifecycleThresholds, getStatus } from "../config/lifecycleThresholds";
 
 const Sensors = () => {
+    const { currentLifecycle } = useLifecycle();
+    const thresholds = lifecycleThresholds[currentLifecycle];
+
+    const currentReadings = {
+        temperature: 24.5,
+        humidity: 65,
+        moisture: 72,
+        light: 850
+    };
+
     const sensorData = [
         {
             name: 'Temperature',
             icon: '🌡️',
-            value: '24.5',
+            value: currentReadings.temperature.toString(),
             unit: '°C',
-            status: 'normal'
+            status: getStatus(currentReadings.temperature, thresholds.temperature)
         },
         {
             name: 'Humidity',
             icon: '💧',
-            value: '65',
+            value: currentReadings.humidity.toString(),
             unit: '%',
-            status: 'normal'
+            status: getStatus(currentReadings.humidity, thresholds.humidity)
         },
         {
             name: 'Substrate Moisture',
             icon: '🌱',
-            value: '72',
+            value: currentReadings.moisture.toString(),
             unit: '%',
-            status: 'success'
+            status: getStatus(currentReadings.moisture, thresholds.moisture)
         },
         {
             name: 'Light Intensity',
             icon: '☀️',
-            value: '850',
+            value: currentReadings.light.toString(),
             unit: 'lux',
-            status: 'warning'
+            status: getStatus(currentReadings.light, thresholds.light)
         }
     ];
 
@@ -43,7 +55,7 @@ const Sensors = () => {
             <div className="space-y-2 mb-4">
                 <h2 className="text-white text-lg font-semibold mb-2">Sensor Readings</h2>
                 {sensorData.map((sensor, index) => (
-                    <Card
+                    <SensorCard
                         key={index}
                         icon={sensor.icon}
                         value={sensor.value}
@@ -51,10 +63,10 @@ const Sensors = () => {
                         status={sensor.status}
                     >
                         {sensor.name}
-                    </Card>
+                    </SensorCard>
                 ))}
             </div>
-            <Buttons />
+            <ActuatorButtons />
         </div>
     );
 };
