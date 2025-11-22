@@ -3,31 +3,36 @@ export const lifecycleThresholds = {
         temperature: { min: 20, max: 35, optimal: [25, 30] },
         humidity: { min: 50, max: 90, optimal: [60, 80] },
         moisture: { min: 40, max: 80, optimal: [50, 70] },
-        light: { min: 0, max: 2000, optimal: [100, 500] }
+        light: { min: 0, max: 2000, optimal: [100, 500] },
+        ammonia: { min: 0, max: 30, optimal: [0, 10] }
     },
     larva: {
         temperature: { min: 22, max: 38, optimal: [27, 32] },
         humidity: { min: 55, max: 95, optimal: [65, 85] },
         moisture: { min: 50, max: 85, optimal: [60, 75] },
-        light: { min: 0, max: 3000, optimal: [200, 800] }
+        light: { min: 0, max: 3000, optimal: [200, 800] },
+        ammonia: { min: 0, max: 30, optimal: [0, 10] }
     },
     prepupa: {
         temperature: { min: 20, max: 35, optimal: [24, 28] },
         humidity: { min: 40, max: 80, optimal: [50, 70] },
         moisture: { min: 30, max: 70, optimal: [40, 60] },
-        light: { min: 0, max: 1500, optimal: [100, 400] }
+        light: { min: 0, max: 1500, optimal: [100, 400] },
+        ammonia: { min: 0, max: 30, optimal: [0, 10] }
     },
     pupa: {
         temperature: { min: 18, max: 32, optimal: [22, 27] },
         humidity: { min: 35, max: 75, optimal: [45, 65] },
         moisture: { min: 25, max: 65, optimal: [35, 55] },
-        light: { min: 0, max: 1000, optimal: [50, 300] }
+        light: { min: 0, max: 1000, optimal: [50, 300] },
+        ammonia: { min: 0, max: 30, optimal: [0, 10] }
     },
     adult: {
         temperature: { min: 20, max: 35, optimal: [25, 30] },
         humidity: { min: 45, max: 85, optimal: [55, 75] },
         moisture: { min: 30, max: 70, optimal: [40, 60] },
-        light: { min: 100, max: 5000, optimal: [500, 1500] }
+        light: { min: 100, max: 5000, optimal: [500, 1500] },
+        ammonia: { min: 0, max: 30, optimal: [0, 10] }
     }
 };
 

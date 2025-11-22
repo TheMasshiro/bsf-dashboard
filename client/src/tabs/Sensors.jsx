@@ -28,35 +28,35 @@ const Sensors = ({ sensorData, lastUpdate }) => {
         {
             name: 'Temperature',
             icon: '🌡️',
-            value: currentReadings.temperature.toString(),
+            value: (currentReadings.temperature ?? 0).toString(),
             unit: '°C',
             status: getStatus(currentReadings.temperature, thresholds.temperature)
         },
         {
             name: 'Humidity',
             icon: '💧',
-            value: currentReadings.humidity.toString(),
+            value: (currentReadings.humidity ?? 0).toString(),
             unit: '%',
             status: getStatus(currentReadings.humidity, thresholds.humidity)
         },
         {
             name: 'Substrate Moisture',
             icon: '🌱',
-            value: currentReadings.moisture.toString(),
+            value: (currentReadings.moisture ?? 0).toString(),
             unit: '%',
             status: getStatus(currentReadings.moisture, thresholds.moisture)
         },
         {
             name: 'Light Intensity',
             icon: '☀️',
-            value: currentReadings.light.toString(),
+            value: (currentReadings.light ?? 0).toString(),
             unit: 'lux',
             status: getStatus(currentReadings.light, thresholds.light)
         },
         {
             name: 'Ammonia',
             icon: '💨',
-            value: currentReadings.ammonia.toString(),
+            value: (currentReadings.ammonia ?? 0).toString(),
             unit: 'ppm',
             status: getStatus(currentReadings.ammonia, thresholds.ammonia)
         }
