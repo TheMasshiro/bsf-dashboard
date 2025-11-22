@@ -1,15 +1,4 @@
-import { useState } from 'react';
-
-const FooterNav = ({ children }) => {
-    const [activeTab, setActiveTab] = useState(0);
-
-    const tabs = [
-        { name: 'Sensors', icon: '🌡️' },
-        { name: 'Notifications', icon: '🔔' },
-        { name: 'Analytics', icon: '📈' },
-        { name: 'Settings', icon: '⚙️' }
-    ];
-
+const FooterNav = ({ children, activeTab, onTabChange, tabs }) => {
     return (
         <div className="flex flex-col h-screen w-full max-w-md mx-auto bg-neutral-900">
             <div className="flex-1 overflow-auto p-4 pb-safe">
@@ -24,7 +13,7 @@ const FooterNav = ({ children }) => {
                             ? 'text-blue-500 bg-neutral-800'
                             : 'text-gray-400 active:bg-neutral-800'
                             }`}
-                        onClick={() => setActiveTab(index)}
+                        onClick={() => onTabChange(index)}
                     >
                         <span className="text-2xl mb-0.5">{tab.icon}</span>
                         <span className="text-[10px] leading-tight">{tab.name}</span>
