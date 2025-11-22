@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Buttons from "../components/Buttons";
 
 const Sensors = () => {
     const sensorData = [
@@ -39,7 +40,8 @@ const Sensors = () => {
                 <p className="text-gray-400 text-sm">Real-time monitoring data</p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 mb-4">
+                <h2 className="text-white text-lg font-semibold mb-2">Sensor Readings</h2>
                 {sensorData.map((sensor, index) => (
                     <Card
                         key={index}
@@ -52,6 +54,7 @@ const Sensors = () => {
                     </Card>
                 ))}
             </div>
+            <Buttons />
         </div>
     );
 };
