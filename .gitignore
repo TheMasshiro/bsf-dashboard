@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+ANDROID_INTEGRATION.md
+QUICK_START.md
+WEBVIEW_FEATURES.md
