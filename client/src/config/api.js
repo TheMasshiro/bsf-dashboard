@@ -1,7 +1,6 @@
-// API Configuration
 const config = {
   // WebSocket URL - backend server
-  WS_URL: import.meta.env.VITE_WS_URL || "ws://localhost:8080",
+  WS_URL: import.meta.env.VITE_WS_URL,
 
   // Reconnection settings
   WS_RECONNECT_DELAY: 3000,

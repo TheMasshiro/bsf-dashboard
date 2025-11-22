@@ -8,20 +8,21 @@ Your BSF Dashboard is now **fully ready** for Android WebView integration! All t
 
 ## 🚀 Features Implemented
 
-### 1. **WebSocket Integration** 
+### 1. **WebSocket Integration**
+
 - ✅ Real-time connection to backend server
 - ✅ Auto-reconnection with exponential backoff
-- ✅ Configurable server URL via `.env` file
 - ✅ Sensor data updates in real-time
 - ✅ Actuator control commands sent to server
 - ✅ Connection status indicator (🟢 Connected / 🔴 Offline)
 
 **Files:**
+
 - `src/hooks/useWebSocket.js` - WebSocket management
 - `src/config/api.js` - Configuration
-- `.env.example` - Environment template
 
 ### 2. **Android Bridge (JavaScript Interface)**
+
 - ✅ Safe communication with native Android code
 - ✅ Toast notifications
 - ✅ Device vibration feedback
@@ -30,23 +31,26 @@ Your BSF Dashboard is now **fully ready** for Android WebView integration! All t
 - ✅ Custom notifications
 
 **Files:**
+
 - `src/utils/androidBridge.js` - Android bridge utilities
 
 **Usage Example:**
+
 ```javascript
-import androidBridge from './utils/androidBridge';
+import androidBridge from "./utils/androidBridge";
 
 // Show toast
-androidBridge.showToast('Sensor updated!');
+androidBridge.showToast("Sensor updated!");
 
 // Vibrate device
 androidBridge.vibrate(100);
 
 // Save to native storage
-androidBridge.saveToNative('key', data);
+androidBridge.saveToNative("key", data);
 ```
 
 ### 3. **App Lifecycle Management**
+
 - ✅ Handles app pause (background)
 - ✅ Handles app resume (foreground)
 - ✅ WebSocket auto-disconnect on pause
@@ -54,14 +58,17 @@ androidBridge.saveToNative('key', data);
 - ✅ Battery optimization
 
 **Files:**
+
 - `src/hooks/useLifecycleEvents.js` - Lifecycle hook
 
 **Features:**
+
 - Saves battery by closing connections when app is in background
 - Automatically reconnects when app comes to foreground
 - Prevents memory leaks
 
 ### 4. **Offline Mode & Data Persistence**
+
 - ✅ LocalStorage for user settings
 - ✅ Cached sensor data (5 min validity)
 - ✅ Actuator states persist
@@ -69,16 +76,19 @@ androidBridge.saveToNative('key', data);
 - ✅ App works without internet connection
 
 **Files:**
+
 - `src/utils/storage.js` - Storage utilities
 - Updated contexts to auto-save
 
 **What's Saved:**
+
 - Current lifecycle stage
 - All actuator states (per lifecycle)
 - Last sensor readings
 - Timestamp of last update
 
 ### 5. **PWA Support**
+
 - ✅ Web App Manifest (`manifest.json`)
 - ✅ Mobile-optimized viewport
 - ✅ Theme color configuration
@@ -86,10 +96,12 @@ androidBridge.saveToNative('key', data);
 - ✅ App icon support
 
 **Files:**
+
 - `public/manifest.json` - PWA manifest
 - Updated `index.html` with meta tags
 
 ### 6. **Mobile Optimizations**
+
 - ✅ Relative asset paths for Android
 - ✅ ES2015 build target
 - ✅ Optimized bundle size
@@ -97,6 +109,7 @@ androidBridge.saveToNative('key', data);
 - ✅ No zoom/pinch (locked viewport)
 
 **Files:**
+
 - Updated `vite.config.js`
 
 ---
@@ -135,6 +148,7 @@ client/
 ## 🔌 WebSocket Message Protocol
 
 ### Server → Client (Sensor Data):
+
 ```json
 {
   "type": "sensor_data",
@@ -148,6 +162,7 @@ client/
 ```
 
 ### Client → Server (Actuator Control):
+
 ```json
 {
   "type": "actuator_command",
@@ -164,11 +179,13 @@ client/
 ## 🎨 UI Enhancements
 
 ### Connection Status Indicator
+
 - Top-right corner shows connection status
 - 🟢 **Connected** - Green badge
 - 🔴 **Offline** - Red badge
 
 ### Last Update Timestamp
+
 - Sensors tab shows when data was last updated
 - Format: "Updated: HH:MM:SS"
 
@@ -177,6 +194,7 @@ client/
 ## ⚙️ Configuration
 
 ### 1. Create `.env` file:
+
 ```bash
 cp .env.example .env
 ```
@@ -184,11 +202,13 @@ cp .env.example .env
 ### 2. Set your WebSocket URL:
 
 **Development:**
+
 ```env
 VITE_WS_URL=ws://localhost:8080
 ```
 
 **Production (Android):**
+
 ```env
 VITE_WS_URL=ws://192.168.1.100:8080
 # Or use domain: wss://your-server.com
@@ -213,12 +233,14 @@ npm run build
 ## 🧪 Testing
 
 ### Browser Testing:
+
 ```bash
 npm run dev
 # Open http://localhost:5173
 ```
 
 ### Mobile Testing:
+
 ```bash
 # Vite server allows external connections
 npm run dev
@@ -226,6 +248,7 @@ npm run dev
 ```
 
 ### Android WebView Testing:
+
 1. Build APK in Android Studio
 2. Install on device
 3. Debug with Chrome DevTools: `chrome://inspect`
@@ -235,7 +258,9 @@ npm run dev
 ## 🐛 Debugging Tips
 
 ### Check WebSocket Connection:
+
 Open browser console, you'll see:
+
 ```
 Connecting to WebSocket: ws://localhost:8080
 WebSocket connected
@@ -243,16 +268,18 @@ Received data: {...}
 ```
 
 ### Check Android Bridge:
+
 ```javascript
-console.log('Is Android:', androidBridge.isAndroidWebView());
+console.log("Is Android:", androidBridge.isAndroidWebView());
 ```
 
 ### Check Cached Data:
+
 ```javascript
 // In browser console
-localStorage.getItem('lastSensorData')
-localStorage.getItem('currentLifecycle')
-localStorage.getItem('actuatorStates')
+localStorage.getItem("lastSensorData");
+localStorage.getItem("currentLifecycle");
+localStorage.getItem("actuatorStates");
 ```
 
 ---
@@ -290,6 +317,7 @@ localStorage.getItem('actuatorStates')
 All console logs are preserved for debugging. Use Chrome DevTools (`chrome://inspect`) to see all logs from your Android device.
 
 **Common Issues:**
+
 - **Can't connect:** Check server IP and firewall
 - **Android bridge not working:** Ensure JavaScript interface is added in Android code
 - **Data not persisting:** Check localStorage in DevTools
