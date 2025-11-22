@@ -13,7 +13,8 @@ const Sensors = ({ sensorData, lastUpdate }) => {
         temperature: 24.5,
         humidity: 65,
         moisture: 72,
-        light: 850
+        light: 850,
+        ammonia: 15
     };
 
     const actuatorControls = [
@@ -51,6 +52,13 @@ const Sensors = ({ sensorData, lastUpdate }) => {
             value: currentReadings.light.toString(),
             unit: 'lux',
             status: getStatus(currentReadings.light, thresholds.light)
+        },
+        {
+            name: 'Ammonia',
+            icon: '💨',
+            value: currentReadings.ammonia.toString(),
+            unit: 'ppm',
+            status: getStatus(currentReadings.ammonia, thresholds.ammonia)
         }
     ];
 
