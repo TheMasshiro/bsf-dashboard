@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLifecycle } from '../context/LifecycleContext';
 
 const Buttons = () => {
-    const [actuators, setActuators] = useState({
-        fan: false,
-        waterPump: false,
-        light: false,
-        heater: false
+    const { currentLifecycle } = useLifecycle();
+    const [actuatorStates, setActuatorStates] = useState({
+        egg: { fan: false, waterPump: false, light: false, heater: false },
+        larva: { fan: false, waterPump: false, light: false, heater: false },
+        prepupa: { fan: false, waterPump: false, light: false, heater: false },
+        pupa: { fan: false, waterPump: false, light: false, heater: false },
+        adult: { fan: false, waterPump: false, light: false, heater: false }
     });
 
     const toggleActuator = (name) => {
-        setActuators(prev => ({ ...prev, [name]: !prev[name] }));
+        setActuatorStates(prev => ({
+            ...prev,
+            [currentLifecycle]: {
+                ...prev[currentLifecycle],
+                [name]: !prev[currentLifecycle][name]
+            }
+        }));
     };
 
     const actuatorButtons = [
@@ -19,6 +28,8 @@ const Buttons = () => {
         { name: 'heater', label: 'Heater', icon: '🔥' }
     ];
 
+    const currentActuators = actuatorStates[currentLifecycle];
+
     return (
         <div className="mb-4">
             <h2 className="text-white text-lg font-semibold mb-2">Controls</h2>
@@ -27,7 +38,7 @@ const Buttons = () => {
                     <button
                         key={actuator.name}
                         onClick={() => toggleActuator(actuator.name)}
-                        className={`flex flex-col items-center justify-center gap-0.5 p-1.5 rounded-lg border transition-all active:scale-95 ${actuators[actuator.name]
+                        className={`flex flex-col items-center justify-center gap-0.5 p-1.5 rounded-lg border transition-all active:scale-95 ${currentActuators[actuator.name]
                                 ? 'bg-blue-600 border-blue-500 text-white'
                                 : 'bg-neutral-800 border-gray-700 text-gray-400'
                             }`}
