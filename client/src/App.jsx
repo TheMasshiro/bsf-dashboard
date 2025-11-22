@@ -4,16 +4,21 @@ import Settings from './tabs/Settings'
 import Sensors from './tabs/Sensors'
 import Analytics from './tabs/Analytics'
 import Notifications from './tabs/Notifications'
+import LifecycleOrb from './components/LifecycleOrb'
+import { LifecycleProvider } from './context/LifecycleContext'
 
 function App() {
 
     return (
-        <FooterNav>
-            <Sensors />
-            <Notifications />
-            <Analytics />
-            <Settings />
-        </FooterNav>
+        <LifecycleProvider>
+            <FooterNav>
+                <Sensors />
+                <Notifications />
+                <Analytics />
+                <Settings />
+            </FooterNav>
+            <LifecycleOrb />
+        </LifecycleProvider>
     )
 }
 
