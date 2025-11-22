@@ -21,7 +21,7 @@ const SensorCard = ({ children, className = '', icon = '📊', value = '', unit 
                 <div className="flex items-center gap-3">
                     <div className="text-3xl">{icon}</div>
                     <div>
-                        <h3 className="text-white font-semibold text-sm">{children}</h3>
+                        <h3 className="text-left text-white font-semibold text-sm">{children}</h3>
                         {value && (
                             <p className="text-gray-400 text-xs mt-0.5">
                                 Last updated: 2m ago

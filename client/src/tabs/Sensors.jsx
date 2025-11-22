@@ -64,10 +64,10 @@ const Sensors = ({ sensorData, lastUpdate }) => {
 
     return (
         <div className="w-full h-full">
-            <div className="mb-2 flex justify-between items-center">
+            <div className="mb-2 flex justify-center items-center">
                 <h1 className="text-white text-2xl font-bold">Sensors</h1>
                 {lastUpdate && (
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-gray-400 absolute right-0">
                         Updated: {lastUpdate.toLocaleTimeString()}
                     </span>
                 )}
