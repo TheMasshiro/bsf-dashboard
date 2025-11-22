@@ -110,7 +110,6 @@ const Analytics = () => {
         <div className="w-full h-full flex flex-col">
             <div className="mb-2">
                 <h1 className="text-white text-2xl font-bold mb-1">Analytics</h1>
-                <p className="text-gray-400 text-sm">24-hour trend analysis</p>
             </div>
 
             <ChartCard

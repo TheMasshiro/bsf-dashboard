@@ -21,9 +21,8 @@ const Settings = () => {
 
     return (
         <div className="w-full h-full">
-            <div className="mb-4">
+            <div className="mb-2">
                 <h1 className="text-white text-2xl font-bold mb-1">Settings</h1>
-                <p className="text-gray-400 text-sm">App configuration and account</p>
             </div>
 
             <div className="space-y-2 mb-4">

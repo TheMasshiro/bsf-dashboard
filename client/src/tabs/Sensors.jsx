@@ -49,7 +49,6 @@ const Sensors = () => {
         <div className="w-full h-full">
             <div className="mb-2">
                 <h1 className="text-white text-2xl font-bold mb-1">Sensors</h1>
-                <p className="text-gray-400 text-sm">Real-time monitoring data</p>
             </div>
 
             <div className="space-y-2 mb-4">
