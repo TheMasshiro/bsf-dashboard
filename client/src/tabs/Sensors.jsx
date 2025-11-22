@@ -52,7 +52,6 @@ const Sensors = () => {
             </div>
 
             <div className="space-y-2 mb-4">
-                <h2 className="text-white text-lg font-semibold mb-2">Sensor Readings</h2>
                 {sensorData.map((sensor, index) => (
                     <SensorCard
                         key={index}
