@@ -40,7 +40,7 @@ const Settings = () => {
                 <InfoCard
                     icon="ℹ️"
                     title="Automatic Backup"
-                    description="Data will be automatically backed up every 5 minutes."
+                    description="Data is automatically backed up every day at midnight."
                 />
             </div>
 
