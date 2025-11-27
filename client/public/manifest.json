@@ -1,0 +1,10 @@
+{
+  "name": "BSF Dashboard",
+  "short_name": "BSF Dashboard",
+  "description": "Black Soldier Fly farming monitoring dashboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#171717",
+  "orientation": "portrait"
+}
