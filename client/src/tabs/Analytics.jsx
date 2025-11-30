@@ -90,33 +90,6 @@ const Analytics = () => {
         { time: '11 PM', value: 74 }
     ];
 
-    const lightData = [
-        { time: '12 AM', value: 0 },
-        { time: '1 AM', value: 0 },
-        { time: '2 AM', value: 0 },
-        { time: '3 AM', value: 0 },
-        { time: '4 AM', value: 100 },
-        { time: '5 AM', value: 200 },
-        { time: '6 AM', value: 400 },
-        { time: '7 AM', value: 500 },
-        { time: '8 AM', value: 600 },
-        { time: '9 AM', value: 750 },
-        { time: '10 AM', value: 900 },
-        { time: '11 AM', value: 950 },
-        { time: '12 PM', value: 950 },
-        { time: '1 PM', value: 920 },
-        { time: '2 PM', value: 850 },
-        { time: '3 PM', value: 800 },
-        { time: '4 PM', value: 800 },
-        { time: '5 PM', value: 650 },
-        { time: '6 PM', value: 450 },
-        { time: '7 PM', value: 200 },
-        { time: '8 PM', value: 200 },
-        { time: '9 PM', value: 50 },
-        { time: '10 PM', value: 0 },
-        { time: '11 PM', value: 0 }
-    ];
-
     const metrics = {
         temperature: {
             name: 'Temperature',
@@ -156,19 +129,6 @@ const Analytics = () => {
             current: 72,
             min: thresholds.moisture.min - 10,
             max: thresholds.moisture.max + 10
-        },
-        light: {
-            name: 'Light',
-            icon: '☀️',
-            data: lightData,
-            unit: 'lux',
-            upperLimit: thresholds.light.max,
-            warningLimit: thresholds.light.optimal[1],
-            lowerLimit: thresholds.light.min,
-            color: '#f59e0b',
-            current: 850,
-            min: thresholds.light.min,
-            max: thresholds.light.max + 500
         }
     };
 
@@ -195,7 +155,7 @@ const Analytics = () => {
                 className="mb-3"
             />
 
-            <div className="grid grid-cols-4 gap-2 pb-30">
+            <div className="grid grid-cols-3 gap-2 pb-30">
                 {Object.entries(metrics).map(([key, metric]) => (
                     <MetricButton
                         key={key}
