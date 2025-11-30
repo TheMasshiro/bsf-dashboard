@@ -8,7 +8,7 @@ export const useWebSocket = () => {
     temperature: 24.5,
     humidity: 65,
     moisture: 72,
-    light: 850,
+    ammonia: 15,
   });
   const [lastUpdate, setLastUpdate] = useState(null);
 
