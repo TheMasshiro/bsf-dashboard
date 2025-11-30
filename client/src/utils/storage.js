@@ -44,6 +44,7 @@ export const storage = {
 export const STORAGE_KEYS = {
   LIFECYCLE: "currentLifecycle",
   ACTUATOR_STATES: "actuatorStates",
+  LIGHT_TIMERS: "lightTimers",
   SENSOR_DATA: "lastSensorData",
   NOTIFICATIONS: "notifications",
   SETTINGS: "userSettings",
