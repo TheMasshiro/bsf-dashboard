@@ -10,8 +10,7 @@ export const useNotifications = (currentReadings) => {
     const sensors = [
         { key: 'temperature', name: 'Temperature', icon: '🌡️', unit: '°C' },
         { key: 'humidity', name: 'Humidity', icon: '💧', unit: '%' },
-        { key: 'moisture', name: 'Substrate Moisture', icon: '🌱', unit: '%' },
-        { key: 'light', name: 'Light Intensity', icon: '☀️', unit: 'lux' }
+        { key: 'moisture', name: 'Substrate Moisture', icon: '🌱', unit: '%' }
     ];
 
     sensors.forEach(sensor => {
