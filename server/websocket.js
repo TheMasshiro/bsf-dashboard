@@ -12,7 +12,7 @@ wss.on("connection", (ws) => {
           temperature: Math.ceil(20 + Math.random() * 15),
           humidity: Math.ceil(50 + Math.random() * 30),
           moisture: Math.ceil(60 + Math.random() * 30),
-          light: Math.ceil(500 + Math.random() * 500),
+          ammonia: Math.ceil(5 + Math.random() * 20),
         },
       }),
     );
