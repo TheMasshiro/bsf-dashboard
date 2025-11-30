@@ -1,6 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from 'recharts';
 
-const SensorCard = ({ children, className = '', icon = '📊', value = '', unit = '', status = 'normal' }) => {
+const SensorCard = ({ children, className = '', icon = '📊', value = '', unit = '', status = 'normal', statusMessage = '' }) => {
     const statusColors = {
         normal: 'border-gray-700 bg-neutral-800',
         warning: 'border-yellow-500/50 bg-yellow-900/20',
@@ -24,7 +24,7 @@ const SensorCard = ({ children, className = '', icon = '📊', value = '', unit 
                         <h3 className="text-left text-white font-semibold text-sm">{children}</h3>
                         {value && (
                             <p className="text-gray-400 text-xs mt-0.5">
-                                Last updated: 2m ago
+                                {statusMessage || 'Last updated: 2m ago'}
                             </p>
                         )}
                     </div>
