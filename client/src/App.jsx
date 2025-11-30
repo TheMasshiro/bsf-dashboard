@@ -77,7 +77,7 @@ function AppContent() {
                     tabs={tabs}
                 >
                     <Sensors sensorData={sensorData} lastUpdate={lastUpdate} />
-                    <Notifications />
+                    <Notifications sensorData={sensorData} lastUpdate={lastUpdate} />
                     <Analytics />
                     <Settings />
                 </FooterNav>
